@@ -205,8 +205,13 @@ BOOL foundUnexpectedHTTPError(NSURLResponse *httpResponse, NSError *httpError, i
         NEOError *dbError = [[NEOError alloc] init];
 
         if (foundUnexpectedHTTPError(res, error, 200, data, dbError)) {
-            callback(nil, dbError);
-            return;
+            if (foundUnexpectedHTTPError(res, error, 204, data, dbError)) {
+                callback(nil, dbError);
+                return;
+            }else{
+                callback(nil, nil);
+                return;
+            }
         }
         NSError *jsonParseError;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONWritingPrettyPrinted error:&jsonParseError];
@@ -226,8 +231,13 @@ BOOL foundUnexpectedHTTPError(NSURLResponse *httpResponse, NSError *httpError, i
         NEOError *dbError = [[NEOError alloc] init];
 
         if (foundUnexpectedHTTPError(res, error, 200, data, dbError)) {
-            callback(nil, dbError);
-            return;
+            if (foundUnexpectedHTTPError(res, error, 204, data, dbError)) {
+                callback(nil, dbError);
+                return;
+            }else{
+                callback(nil, nil);
+                return;
+            }
         }
         NSError *jsonParseError;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONWritingPrettyPrinted error:&jsonParseError];
