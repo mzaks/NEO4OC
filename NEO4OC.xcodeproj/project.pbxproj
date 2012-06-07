@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		383A50921580B3F700AA10D5 /* NEODataAccessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A50801580B3F700AA10D5 /* NEODataAccessor.h */; };
+		383A50931580B3F700AA10D5 /* NEODataAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A50811580B3F700AA10D5 /* NEODataAccessor.m */; };
+		383A50941580B3F700AA10D5 /* NEOError.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A50821580B3F700AA10D5 /* NEOError.h */; };
+		383A50951580B3F700AA10D5 /* NEOError.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A50831580B3F700AA10D5 /* NEOError.m */; };
+		383A50961580B3F700AA10D5 /* NEOGraphDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A50841580B3F700AA10D5 /* NEOGraphDatabase.h */; };
+		383A50971580B3F700AA10D5 /* NEOGraphDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A50851580B3F700AA10D5 /* NEOGraphDatabase.m */; };
+		383A50981580B3F700AA10D5 /* NEOIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A50861580B3F700AA10D5 /* NEOIndex.h */; };
+		383A50991580B3F700AA10D5 /* NEOIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A50871580B3F700AA10D5 /* NEOIndex.m */; };
+		383A509A1580B3F700AA10D5 /* NEONode.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A50881580B3F700AA10D5 /* NEONode.h */; };
+		383A509B1580B3F700AA10D5 /* NEONode.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A50891580B3F700AA10D5 /* NEONode.m */; };
+		383A509C1580B3F700AA10D5 /* NEOPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A508A1580B3F700AA10D5 /* NEOPath.h */; };
+		383A509D1580B3F700AA10D5 /* NEOPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A508B1580B3F700AA10D5 /* NEOPath.m */; };
+		383A509E1580B3F700AA10D5 /* NEOPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A508C1580B3F700AA10D5 /* NEOPromise.h */; };
+		383A509F1580B3F700AA10D5 /* NEOPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A508D1580B3F700AA10D5 /* NEOPromise.m */; };
+		383A50A01580B3F700AA10D5 /* NEORelationship.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A508E1580B3F700AA10D5 /* NEORelationship.h */; };
+		383A50A11580B3F700AA10D5 /* NEORelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A508F1580B3F700AA10D5 /* NEORelationship.m */; };
+		383A50A21580B3F700AA10D5 /* NEORequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 383A50901580B3F700AA10D5 /* NEORequestBuilder.h */; };
+		383A50A31580B3F700AA10D5 /* NEORequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 383A50911580B3F700AA10D5 /* NEORequestBuilder.m */; };
+		388FA8A4157389AC00B84976 /* NEODataAccessorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 388FA8A3157389AC00B84976 /* NEODataAccessorTests.m */; };
+		38CD9E67152B53F80059FEB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD9E66152B53F80059FEB3 /* Foundation.framework */; };
+		38CD9E75152B53F80059FEB3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD9E74152B53F80059FEB3 /* SenTestingKit.framework */; };
+		38CD9E77152B53F80059FEB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD9E76152B53F80059FEB3 /* UIKit.framework */; };
+		38CD9E78152B53F80059FEB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD9E66152B53F80059FEB3 /* Foundation.framework */; };
+		38CD9E7B152B53F80059FEB3 /* libNEO4OC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38CD9E63152B53F80059FEB3 /* libNEO4OC.a */; };
+		38CD9E81152B53F80059FEB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38CD9E7F152B53F80059FEB3 /* InfoPlist.strings */; };
+		38CD9E84152B53F80059FEB3 /* NEO4OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CD9E83152B53F80059FEB3 /* NEO4OCTests.m */; };
+		38D7581A156586E600010727 /* NEO4OC.h in Headers */ = {isa = PBXBuildFile; fileRef = 38CD9E6B152B53F80059FEB3 /* NEO4OC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38CD9E79152B53F80059FEB3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38CD9E5A152B53F70059FEB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38CD9E62152B53F80059FEB3;
+			remoteInfo = NEO4OC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		383A50801580B3F700AA10D5 /* NEODataAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEODataAccessor.h; sourceTree = "<group>"; };
+		383A50811580B3F700AA10D5 /* NEODataAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEODataAccessor.m; sourceTree = "<group>"; };
+		383A50821580B3F700AA10D5 /* NEOError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEOError.h; sourceTree = "<group>"; };
+		383A50831580B3F700AA10D5 /* NEOError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEOError.m; sourceTree = "<group>"; };
+		383A50841580B3F700AA10D5 /* NEOGraphDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEOGraphDatabase.h; sourceTree = "<group>"; };
+		383A50851580B3F700AA10D5 /* NEOGraphDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEOGraphDatabase.m; sourceTree = "<group>"; };
+		383A50861580B3F700AA10D5 /* NEOIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEOIndex.h; sourceTree = "<group>"; };
+		383A50871580B3F700AA10D5 /* NEOIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEOIndex.m; sourceTree = "<group>"; };
+		383A50881580B3F700AA10D5 /* NEONode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEONode.h; sourceTree = "<group>"; };
+		383A50891580B3F700AA10D5 /* NEONode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEONode.m; sourceTree = "<group>"; };
+		383A508A1580B3F700AA10D5 /* NEOPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEOPath.h; sourceTree = "<group>"; };
+		383A508B1580B3F700AA10D5 /* NEOPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEOPath.m; sourceTree = "<group>"; };
+		383A508C1580B3F700AA10D5 /* NEOPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEOPromise.h; sourceTree = "<group>"; };
+		383A508D1580B3F700AA10D5 /* NEOPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEOPromise.m; sourceTree = "<group>"; };
+		383A508E1580B3F700AA10D5 /* NEORelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEORelationship.h; sourceTree = "<group>"; };
+		383A508F1580B3F700AA10D5 /* NEORelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEORelationship.m; sourceTree = "<group>"; };
+		383A50901580B3F700AA10D5 /* NEORequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEORequestBuilder.h; sourceTree = "<group>"; };
+		383A50911580B3F700AA10D5 /* NEORequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEORequestBuilder.m; sourceTree = "<group>"; };
+		383A50A71580B49600AA10D5 /* COPYRIGHT */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYRIGHT; sourceTree = SOURCE_ROOT; };
+		383A50A91580B56F00AA10D5 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
+		388FA8A2157389AC00B84976 /* NEODataAccessorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEODataAccessorTests.h; sourceTree = "<group>"; };
+		388FA8A3157389AC00B84976 /* NEODataAccessorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEODataAccessorTests.m; sourceTree = "<group>"; };
+		38CD9E63152B53F80059FEB3 /* libNEO4OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNEO4OC.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		38CD9E66152B53F80059FEB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		38CD9E6A152B53F80059FEB3 /* NEO4OC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NEO4OC-Prefix.pch"; sourceTree = "<group>"; };
+		38CD9E6B152B53F80059FEB3 /* NEO4OC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEO4OC.h; sourceTree = "<group>"; };
+		38CD9E73152B53F80059FEB3 /* NEO4OCTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NEO4OCTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38CD9E74152B53F80059FEB3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		38CD9E76152B53F80059FEB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		38CD9E7E152B53F80059FEB3 /* NEO4OCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NEO4OCTests-Info.plist"; sourceTree = "<group>"; };
+		38CD9E80152B53F80059FEB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		38CD9E82152B53F80059FEB3 /* NEO4OCTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEO4OCTests.h; sourceTree = "<group>"; };
+		38CD9E83152B53F80059FEB3 /* NEO4OCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEO4OCTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38CD9E60152B53F80059FEB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38CD9E67152B53F80059FEB3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38CD9E6F152B53F80059FEB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38CD9E75152B53F80059FEB3 /* SenTestingKit.framework in Frameworks */,
+				38CD9E77152B53F80059FEB3 /* UIKit.framework in Frameworks */,
+				38CD9E78152B53F80059FEB3 /* Foundation.framework in Frameworks */,
+				38CD9E7B152B53F80059FEB3 /* libNEO4OC.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		383A507F1580B3F700AA10D5 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				383A50801580B3F700AA10D5 /* NEODataAccessor.h */,
+				383A50811580B3F700AA10D5 /* NEODataAccessor.m */,
+				383A50821580B3F700AA10D5 /* NEOError.h */,
+				383A50831580B3F700AA10D5 /* NEOError.m */,
+				383A50841580B3F700AA10D5 /* NEOGraphDatabase.h */,
+				383A50851580B3F700AA10D5 /* NEOGraphDatabase.m */,
+				383A50861580B3F700AA10D5 /* NEOIndex.h */,
+				383A50871580B3F700AA10D5 /* NEOIndex.m */,
+				383A50881580B3F700AA10D5 /* NEONode.h */,
+				383A50891580B3F700AA10D5 /* NEONode.m */,
+				383A508A1580B3F700AA10D5 /* NEOPath.h */,
+				383A508B1580B3F700AA10D5 /* NEOPath.m */,
+				383A508C1580B3F700AA10D5 /* NEOPromise.h */,
+				383A508D1580B3F700AA10D5 /* NEOPromise.m */,
+				383A508E1580B3F700AA10D5 /* NEORelationship.h */,
+				383A508F1580B3F700AA10D5 /* NEORelationship.m */,
+				383A50901580B3F700AA10D5 /* NEORequestBuilder.h */,
+				383A50911580B3F700AA10D5 /* NEORequestBuilder.m */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		38CD9E58152B53F70059FEB3 = {
+			isa = PBXGroup;
+			children = (
+				38CD9E68152B53F80059FEB3 /* NEO4OC */,
+				38CD9E7C152B53F80059FEB3 /* NEO4OCTests */,
+				38CD9E65152B53F80059FEB3 /* Frameworks */,
+				38CD9E64152B53F80059FEB3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		38CD9E64152B53F80059FEB3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38CD9E63152B53F80059FEB3 /* libNEO4OC.a */,
+				38CD9E73152B53F80059FEB3 /* NEO4OCTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38CD9E65152B53F80059FEB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38CD9E66152B53F80059FEB3 /* Foundation.framework */,
+				38CD9E74152B53F80059FEB3 /* SenTestingKit.framework */,
+				38CD9E76152B53F80059FEB3 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38CD9E68152B53F80059FEB3 /* NEO4OC */ = {
+			isa = PBXGroup;
+			children = (
+				383A507F1580B3F700AA10D5 /* lib */,
+				38CD9E6B152B53F80059FEB3 /* NEO4OC.h */,
+				38CD9E69152B53F80059FEB3 /* Supporting Files */,
+				383A50A71580B49600AA10D5 /* COPYRIGHT */,
+				383A50A91580B56F00AA10D5 /* README */,
+			);
+			path = NEO4OC;
+			sourceTree = "<group>";
+		};
+		38CD9E69152B53F80059FEB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38CD9E6A152B53F80059FEB3 /* NEO4OC-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38CD9E7C152B53F80059FEB3 /* NEO4OCTests */ = {
+			isa = PBXGroup;
+			children = (
+				38CD9E7D152B53F80059FEB3 /* Supporting Files */,
+				38CD9E82152B53F80059FEB3 /* NEO4OCTests.h */,
+				38CD9E83152B53F80059FEB3 /* NEO4OCTests.m */,
+				388FA8A2157389AC00B84976 /* NEODataAccessorTests.h */,
+				388FA8A3157389AC00B84976 /* NEODataAccessorTests.m */,
+			);
+			path = NEO4OCTests;
+			sourceTree = "<group>";
+		};
+		38CD9E7D152B53F80059FEB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				38CD9E7E152B53F80059FEB3 /* NEO4OCTests-Info.plist */,
+				38CD9E7F152B53F80059FEB3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		38CD9E61152B53F80059FEB3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38D7581A156586E600010727 /* NEO4OC.h in Headers */,
+				383A50921580B3F700AA10D5 /* NEODataAccessor.h in Headers */,
+				383A50941580B3F700AA10D5 /* NEOError.h in Headers */,
+				383A50961580B3F700AA10D5 /* NEOGraphDatabase.h in Headers */,
+				383A50981580B3F700AA10D5 /* NEOIndex.h in Headers */,
+				383A509A1580B3F700AA10D5 /* NEONode.h in Headers */,
+				383A509C1580B3F700AA10D5 /* NEOPath.h in Headers */,
+				383A509E1580B3F700AA10D5 /* NEOPromise.h in Headers */,
+				383A50A01580B3F700AA10D5 /* NEORelationship.h in Headers */,
+				383A50A21580B3F700AA10D5 /* NEORequestBuilder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		38CD9E62152B53F80059FEB3 /* NEO4OC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38CD9E87152B53F80059FEB3 /* Build configuration list for PBXNativeTarget "NEO4OC" */;
+			buildPhases = (
+				38CD9E5F152B53F80059FEB3 /* Sources */,
+				38CD9E60152B53F80059FEB3 /* Frameworks */,
+				38CD9E61152B53F80059FEB3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NEO4OC;
+			productName = NEO4OC;
+			productReference = 38CD9E63152B53F80059FEB3 /* libNEO4OC.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		38CD9E72152B53F80059FEB3 /* NEO4OCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38CD9E8A152B53F80059FEB3 /* Build configuration list for PBXNativeTarget "NEO4OCTests" */;
+			buildPhases = (
+				38CD9E6E152B53F80059FEB3 /* Sources */,
+				38CD9E6F152B53F80059FEB3 /* Frameworks */,
+				38CD9E70152B53F80059FEB3 /* Resources */,
+				38CD9E71152B53F80059FEB3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38CD9E7A152B53F80059FEB3 /* PBXTargetDependency */,
+			);
+			name = NEO4OCTests;
+			productName = NEO4OCTests;
+			productReference = 38CD9E73152B53F80059FEB3 /* NEO4OCTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38CD9E5A152B53F70059FEB3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Besitzer;
+			};
+			buildConfigurationList = 38CD9E5D152B53F70059FEB3 /* Build configuration list for PBXProject "NEO4OC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 38CD9E58152B53F70059FEB3;
+			productRefGroup = 38CD9E64152B53F80059FEB3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38CD9E62152B53F80059FEB3 /* NEO4OC */,
+				38CD9E72152B53F80059FEB3 /* NEO4OCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38CD9E70152B53F80059FEB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38CD9E81152B53F80059FEB3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38CD9E71152B53F80059FEB3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		38CD9E5F152B53F80059FEB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				383A50931580B3F700AA10D5 /* NEODataAccessor.m in Sources */,
+				383A50951580B3F700AA10D5 /* NEOError.m in Sources */,
+				383A50971580B3F700AA10D5 /* NEOGraphDatabase.m in Sources */,
+				383A50991580B3F700AA10D5 /* NEOIndex.m in Sources */,
+				383A509B1580B3F700AA10D5 /* NEONode.m in Sources */,
+				383A509D1580B3F700AA10D5 /* NEOPath.m in Sources */,
+				383A509F1580B3F700AA10D5 /* NEOPromise.m in Sources */,
+				383A50A11580B3F700AA10D5 /* NEORelationship.m in Sources */,
+				383A50A31580B3F700AA10D5 /* NEORequestBuilder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38CD9E6E152B53F80059FEB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38CD9E84152B53F80059FEB3 /* NEO4OCTests.m in Sources */,
+				388FA8A4157389AC00B84976 /* NEODataAccessorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38CD9E7A152B53F80059FEB3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38CD9E62152B53F80059FEB3 /* NEO4OC */;
+			targetProxy = 38CD9E79152B53F80059FEB3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		38CD9E7F152B53F80059FEB3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38CD9E80152B53F80059FEB3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		38CD9E85152B53F80059FEB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		38CD9E86152B53F80059FEB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38CD9E88152B53F80059FEB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/NEO4OC.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NEO4OC/NEO4OC-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		38CD9E89152B53F80059FEB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/NEO4OC.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NEO4OC/NEO4OC-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		38CD9E8B152B53F80059FEB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NEO4OC/NEO4OC-Prefix.pch";
+				INFOPLIST_FILE = "NEO4OCTests/NEO4OCTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		38CD9E8C152B53F80059FEB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NEO4OC/NEO4OC-Prefix.pch";
+				INFOPLIST_FILE = "NEO4OCTests/NEO4OCTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38CD9E5D152B53F70059FEB3 /* Build configuration list for PBXProject "NEO4OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38CD9E85152B53F80059FEB3 /* Debug */,
+				38CD9E86152B53F80059FEB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38CD9E87152B53F80059FEB3 /* Build configuration list for PBXNativeTarget "NEO4OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38CD9E88152B53F80059FEB3 /* Debug */,
+				38CD9E89152B53F80059FEB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38CD9E8A152B53F80059FEB3 /* Build configuration list for PBXNativeTarget "NEO4OCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38CD9E8B152B53F80059FEB3 /* Debug */,
+				38CD9E8C152B53F80059FEB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 38CD9E5A152B53F70059FEB3 /* Project object */;
+}
