@@ -30,7 +30,7 @@ typedef enum DIRECTION RELATIONSHIP_DIRECTION;
 
 - (NSDictionary *) data;
 - (void)fetchData:(void(^)(NSDictionary* data, NEOError* error))callback;
-- (void)setData:(NSDictionary*)newDataOrEmpty withResultHandler:(void (^)(NEOError *))callback;
+- (void)setData:(NSDictionary*)newDataOrEmpty withResultHandler:(void (^)(NEOError *error))callback;
 
 - (NSString *) type;
 
@@ -40,7 +40,7 @@ typedef enum DIRECTION RELATIONSHIP_DIRECTION;
 - (NSString *) endNodeId;
 - (NEONodePromise *) endNode;
 
-- (void)deleteWithResultHandler:(void (^)(NEOError *))callback;
+- (void)deleteWithResultHandler:(void (^)(NEOError *error))callback;
 @end
 
 @class NEOGraphDatabase;

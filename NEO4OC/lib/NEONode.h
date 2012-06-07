@@ -25,9 +25,9 @@
 
 - (NSDictionary *)data;
 - (void)fetchData:(void(^)(NSDictionary* data, NEOError* error))callback;
-- (void)setData:(NSDictionary*)newDataOrEmpty withResultHandler:(void (^)(NEOError *))callback;
+- (void)setData:(NSDictionary*)newDataOrEmpty withResultHandler:(void (^)(NEOError *error))callback;
 
-- (void)deleteWithResultHandler:(void (^)(NEOError *))callback;
+- (void)deleteWithResultHandler:(void (^)(NEOError *error))callback;
 
 - (NEORelationshipPromise*)createRelationshipToNode:(id<NEONode>)endNode ofType:(NSString*)theType andData:(NSDictionary*)theDataOrNil;
 - (void)getAllRelationshipsOfTypes:(NSArray*)typesOrNil withResultHandler:(void(^)(NSArray * relationships, NEOError * error))callback;
