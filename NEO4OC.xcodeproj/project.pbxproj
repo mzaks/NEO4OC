@@ -66,7 +66,7 @@
 		383A50901580B3F700AA10D5 /* NEORequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEORequestBuilder.h; sourceTree = "<group>"; };
 		383A50911580B3F700AA10D5 /* NEORequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEORequestBuilder.m; sourceTree = "<group>"; };
 		383A50A71580B49600AA10D5 /* COPYRIGHT */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYRIGHT; sourceTree = SOURCE_ROOT; };
-		383A50A91580B56F00AA10D5 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
+		383A50A91580B56F00AA10D5 /* Readme.md */ = {isa = PBXFileReference; path = Readme.md; sourceTree = SOURCE_ROOT; };
 		388FA8A2157389AC00B84976 /* NEODataAccessorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEODataAccessorTests.h; sourceTree = "<group>"; };
 		388FA8A3157389AC00B84976 /* NEODataAccessorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEODataAccessorTests.m; sourceTree = "<group>"; };
 		38CD9E63152B53F80059FEB3 /* libNEO4OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNEO4OC.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,7 +166,7 @@
 				38CD9E6B152B53F80059FEB3 /* NEO4OC.h */,
 				38CD9E69152B53F80059FEB3 /* Supporting Files */,
 				383A50A71580B49600AA10D5 /* COPYRIGHT */,
-				383A50A91580B56F00AA10D5 /* README */,
+				383A50A91580B56F00AA10D5 /* Readme.md */,
 			);
 			path = NEO4OC;
 			sourceTree = "<group>";
