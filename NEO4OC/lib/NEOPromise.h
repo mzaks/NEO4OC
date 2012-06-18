@@ -11,6 +11,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <Foundation/NSObject.h>
 
 @class NEOError;
 enum PROMISE_STATUS{
@@ -32,5 +33,5 @@ typedef enum PROMISE_STATUS PROMISE_STATUS;
 -(id)wait;
 -(void)waitWithHandler:(void (^)(id value, NEOError *error))callback;
 
-+ (void)waitForPromises:(NEOPromise*)promise, ...;
++ (void)waitForPromises:(NEOPromise*)promise, ... NS_REQUIRES_NIL_TERMINATION;
 @end

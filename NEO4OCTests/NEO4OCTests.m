@@ -5,6 +5,9 @@
 #import "NEOError.h"
 #import "NEOPath.h"
 
+#define START_WAIT __block int wait = 1
+#define END_WAIT while(wait>0){}
+
 @implementation NEO4OCTests {
     NEOGraphDatabase *graph;
 }
@@ -91,6 +94,27 @@
     STAssertNil(promise.nodeId, @"Data should be nil after node is removed");
 }
 
+- (void)testOrphanAndDeleteNode {
+    NEONodePromise *promise = [graph createNodeWithData:nil];
+    [[promise createRelationshipOfType:@"self" toNode:promise andData:nil] wait];
+    NSString *nodeId = promise.nodeId;
+    START_WAIT;
+    [promise getAllRelationshipsOfTypes:nil withResultHandler:^(NSArray *relationships, NEOError *error) {
+        STAssertNil(error, @"Unexpected error : %@", error);
+        STAssertTrue(relationships.count == 1, @"Unexpected number of relationships : %i", relationships.count);
+        wait--;
+    }];
+    END_WAIT;
+    wait++;
+    [promise orphanNodeAndDeleteWithResultHandler:^(NEOError *error) {
+        STAssertNil(error, @"Unexpected error : %@", error);
+        wait--;
+    }];
+    END_WAIT;
+    NEONodePromise * promise1 = [[graph getNodeById:nodeId] wait];
+    STAssertNotNil(promise1.error, @"Unexpected no node: %@", promise1);
+}
+
 - (void)testGetNode {
     NEONodePromise *promise = [graph getNodeById:@"0"];
     NSDictionary *data = promise.data;
@@ -124,14 +148,14 @@
 
 - (void)testCreateRelationshipFromNode {
     NEONodePromise *promise1 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Self Refered Node" forKey:@"name"]];
-    NEORelationshipPromise *relPromise = [promise1 createRelationshipToNode:promise1 ofType:@"me" andData:nil];
+    NEORelationshipPromise *relPromise = [promise1 createRelationshipOfType:@"me" toNode:promise1 andData:nil];
     STAssertNotNil(relPromise.relationshipId, @"Shoudl have relationship ID");
     NSLog(@"Created relationship: %@", relPromise);
 }
 
 - (void)testCreateRelationshipAndThenGetItFromGraph {
     NEONodePromise *promise1 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Self Refered Node" forKey:@"name"]];
-    NEORelationshipPromise *relPromise = [promise1 createRelationshipToNode:promise1 ofType:@"me" andData:nil];
+    NEORelationshipPromise *relPromise = [promise1 createRelationshipOfType:@"me" toNode:promise1 andData:nil];
     STAssertNotNil(relPromise.relationshipId, @"Shoudl have relationship ID");
     NEORelationshipPromise *relPromise2 = [graph getRelationshipById:relPromise.relationshipId];
     STAssertEqualObjects(relPromise.startNodeId, relPromise2.startNodeId, @"Should have the right starNodeId");
@@ -142,7 +166,7 @@
 - (void)testCreateRelationshipAndThenGetStartAndEndNodes {
     NEONodePromise *promise1 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node A" forKey:@"name"]];
     NEONodePromise *promise2 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node B" forKey:@"name"]];
-    NEORelationshipPromise *relPromise = [promise1 createRelationshipToNode:promise2 ofType:@"rel" andData:nil];
+    NEORelationshipPromise *relPromise = [promise1 createRelationshipOfType:@"rel" toNode:promise2 andData:nil];
     STAssertNotNil(relPromise.relationshipId, @"Shoudl have relationship ID");
     NEONodePromise *startNode = relPromise.startNode;
     STAssertEqualObjects(startNode.data, promise1.data, @"Should have the right starNode");
@@ -161,7 +185,7 @@
 
 - (void)testDeleteRelationshipById {
     NEONodePromise *promise1 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Self Refered Node" forKey:@"name"]];
-    NEORelationshipPromise *relPromise = [promise1 createRelationshipToNode:promise1 ofType:@"me" andData:nil];
+    NEORelationshipPromise *relPromise = [promise1 createRelationshipOfType:@"me" toNode:promise1 andData:nil];
     __block NSString *wait = @"";
     [graph deleteRelationshipById:relPromise.relationshipId withResultHandler:^(NEOError *error) {
         STAssertNil(error, @"No error should accure");
@@ -182,7 +206,7 @@
 
 - (void)testDeleteRelationship {
     NEONodePromise *promise1 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Self Refered Node" forKey:@"name"]];
-    NEORelationshipPromise *relPromise = [promise1 createRelationshipToNode:promise1 ofType:@"me" andData:nil];
+    NEORelationshipPromise *relPromise = [promise1 createRelationshipOfType:@"me" toNode:promise1 andData:nil];
     __block NSString *wait = @"";
     [relPromise deleteWithResultHandler:^(NEOError *error) {
         STAssertNil(error, @"No error should accure");
@@ -202,13 +226,13 @@
     NEONodePromise *promise2 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node2" forKey:@"name"]];
     NEONodePromise *promise3 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node3" forKey:@"name"]];
 
-    NEORelationshipPromise *relPromise1 = [promise1 createRelationshipToNode:promise2 ofType:@"A" andData:nil];
+    NEORelationshipPromise *relPromise1 = [promise1 createRelationshipOfType:@"A" toNode:promise2 andData:nil];
     //[NEOPromise waitForPromises:relPromise1, nil];
-    NEORelationshipPromise *relPromise2 = [promise1 createRelationshipToNode:promise3 ofType:@"A" andData:nil];
+    NEORelationshipPromise *relPromise2 = [promise1 createRelationshipOfType:@"A" toNode:promise3 andData:nil];
     //[NEOPromise waitForPromises:relPromise2, nil];
-    NEORelationshipPromise *relPromise3 = [promise2 createRelationshipToNode:promise1 ofType:@"B" andData:nil];
+    NEORelationshipPromise *relPromise3 = [promise2 createRelationshipOfType:@"B" toNode:promise1 andData:nil];
     //[NEOPromise waitForPromises:relPromise3, nil];
-    NEORelationshipPromise *relPromise4 = [promise1 createRelationshipToNode:promise3 ofType:@"C" andData:nil];
+    NEORelationshipPromise *relPromise4 = [promise1 createRelationshipOfType:@"C" toNode:promise3 andData:nil];
     //[NEOPromise waitForPromises:relPromise4, nil];
     [NEOPromise waitForPromises:relPromise1, relPromise2, relPromise3, relPromise4, nil];
 
@@ -252,8 +276,8 @@
     NEONodePromise *node1 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node1" forKey:@"name"]];
     NEONodePromise *node2 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node2" forKey:@"name"]];
     NEONodePromise *node3 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node3" forKey:@"name"]];
-    NEORelationshipPromise *rel1 = [node1 createRelationshipToNode:node2 ofType:@"A" andData:nil];
-    NEORelationshipPromise *rel2 = [node2 createRelationshipToNode:node3 ofType:@"B" andData:nil];
+    NEORelationshipPromise *rel1 = [node1 createRelationshipOfType:@"A" toNode:node2 andData:nil];
+    NEORelationshipPromise *rel2 = [node2 createRelationshipOfType:@"B" toNode:node3 andData:nil];
     [NEOPromise waitForPromises:rel1, rel2, nil];
 
     NSNumber *nodeId = [NSNumber numberWithInt:node1.nodeId.intValue];
@@ -317,7 +341,7 @@
     NSDictionary *myData = [NSDictionary dictionaryWithObject:@"klop" forKey:@"mop"];
     NSDictionary *newData = [NSDictionary dictionaryWithObject:@"klop2" forKey:@"mop2"];
     NEONodePromise *node1 = [graph createNodeWithData:nil];
-    NEORelationshipPromise *rel = [node1 createRelationshipToNode:node1 ofType:@"me" andData:myData];
+    NEORelationshipPromise *rel = [node1 createRelationshipOfType:@"me" toNode:node1 andData:myData];
     STAssertEqualObjects(rel.data, myData, @"data should stay same");
     __block int wait = 0;
     [rel setData:newData withResultHandler:^(NEOError *error) {
@@ -332,7 +356,7 @@
 - (void)testFetchPropertyForRelationship {
     NSDictionary *myData = [NSDictionary dictionaryWithObject:@"klop" forKey:@"mop"];
     NEONodePromise *node1 = [graph createNodeWithData:nil];
-    NEORelationshipPromise *rel = [node1 createRelationshipToNode:node1 ofType:@"me" andData:myData];
+    NEORelationshipPromise *rel = [node1 createRelationshipOfType:@"me" toNode:node1 andData:myData];
     STAssertEqualObjects(rel.data, myData, @"data should stay same");
     __block int wait = 0;
     [rel fetchData:^(NSDictionary *data, NEOError *error) {
@@ -347,8 +371,8 @@
     NEONodePromise *node1 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node1" forKey:@"name"]];
     NEONodePromise *node2 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node2" forKey:@"name"]];
     NEONodePromise *node3 = [graph createNodeWithData:[NSDictionary dictionaryWithObject:@"Node3" forKey:@"name"]];
-    NEORelationshipPromise *rel1 = [node1 createRelationshipToNode:node2 ofType:@"A" andData:nil];
-    NEORelationshipPromise *rel2 = [node2 createRelationshipToNode:node3 ofType:@"B" andData:nil];
+    NEORelationshipPromise *rel1 = [node1 createRelationshipOfType:@"A" toNode:node2 andData:nil];
+    NEORelationshipPromise *rel2 = [node2 createRelationshipOfType:@"B" toNode:node3 andData:nil];
     [NEOPromise waitForPromises:rel1, rel2, nil];
 
     NSNumber *nodeId = [NSNumber numberWithInt:node1.nodeId.intValue];
@@ -577,7 +601,7 @@
 - (void)testAddFindAndDeleteRelationshipForIndex {
     NEORelationshipIndexPromise *index1 = [graph createRelationshipIndexWithName:@"relIndex1" andConfig:nil];
     NEONodePromise *node = [graph createNodeWithData:nil];
-    NEORelationshipPromise *const rel = [node createRelationshipToNode:node ofType:@"knows" andData:nil];
+    NEORelationshipPromise *const rel = [node createRelationshipOfType:@"knows" toNode:node andData:nil];
 
     __block int waiting = 1;
     [index1 addRelationship:rel forKey:@"foo" andValue:@"bar" withResultHandler:^(NEOError *error) {

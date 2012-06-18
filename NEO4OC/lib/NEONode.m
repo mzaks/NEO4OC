@@ -63,8 +63,41 @@
     }];
 }
 
-- (NEORelationshipPromise*)createRelationshipToNode:(id<NEONode>)endNode ofType:(NSString*)theType andData:(NSDictionary*)theData{
-    return [graph createRelationshipOfType:theType fromNode:self toNode:endNode withData:theData];
+- (void)orphanNodeWithResultHandler:(void (^)(NEOError *error))callback{
+    [self getAllRelationshipsOfTypes:nil withResultHandler:^(NSArray * relationships, NEOError *error){
+        if (error){
+            callback(error);
+            return;
+        }
+        __block NSInteger waiting = relationships.count;
+        [relationships enumerateObjectsUsingBlock:^(id<NEORelationship>rel, NSUInteger index, BOOL *stop){
+            [rel deleteWithResultHandler:^(NEOError *relError){
+                if (relError){
+                    callback(error);
+                    return;
+                }
+                waiting--;
+            }];
+        }];
+        // TODO: Implement Timeout
+        while(waiting){}
+        callback(nil);
+    }];
+}
+
+- (void)orphanNodeAndDeleteWithResultHandler:(void (^)(NEOError *error))callback{
+    [self orphanNodeWithResultHandler:^(NEOError *error){
+        if (error){
+            callback(error);
+        }
+        [self deleteWithResultHandler:^(NEOError *deleteError){
+            callback(error);
+        }];
+    }];
+}
+
+- (NEORelationshipPromise*)createRelationshipOfType:(NSString *)theType toNode:(id <NEONode>)endNode andData:(NSDictionary*)theDataOrNil {
+    return [graph createRelationshipOfType:theType fromNode:self toNode:endNode withData:theDataOrNil];
 }
 
 - (void)getAllRelationshipsOfTypes:(NSArray*)types withResultHandler:(void(^)(NSArray * relationships, NEOError * error))callback{

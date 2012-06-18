@@ -28,8 +28,10 @@
 - (void)setData:(NSDictionary*)newDataOrEmpty withResultHandler:(void (^)(NEOError *error))callback;
 
 - (void)deleteWithResultHandler:(void (^)(NEOError *error))callback;
+- (void)orphanNodeWithResultHandler:(void (^)(NEOError *error))callback;
+- (void)orphanNodeAndDeleteWithResultHandler:(void (^)(NEOError *error))callback;
 
-- (NEORelationshipPromise*)createRelationshipToNode:(id<NEONode>)endNode ofType:(NSString*)theType andData:(NSDictionary*)theDataOrNil;
+- (NEORelationshipPromise*)createRelationshipOfType:(NSString *)theType toNode:(id <NEONode>)endNode andData:(NSDictionary*)theDataOrNil;
 - (void)getAllRelationshipsOfTypes:(NSArray*)typesOrNil withResultHandler:(void(^)(NSArray * relationships, NEOError * error))callback;
 - (void)getOutgoingRelationshipsOfTypes:(NSArray*)typesOrNil withResultHandler:(void(^)(NSArray * relationships, NEOError * error))callback;
 - (void)getIncomingRelationshipsOfTypes:(NSArray*)typesOrNil withResultHandler:(void(^)(NSArray * relationships, NEOError * error))callback;
