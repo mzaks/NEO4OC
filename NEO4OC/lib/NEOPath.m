@@ -1,5 +1,6 @@
 
 #import "NEOPath.h"
+#import "NEOGraphDatabase_Internal.h"
 
 static NSOperationQueue * queue;
 

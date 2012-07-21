@@ -34,6 +34,7 @@
 		38CD9E81152B53F80059FEB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38CD9E7F152B53F80059FEB3 /* InfoPlist.strings */; };
 		38CD9E84152B53F80059FEB3 /* NEO4OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CD9E83152B53F80059FEB3 /* NEO4OCTests.m */; };
 		38D7581A156586E600010727 /* NEO4OC.h in Headers */ = {isa = PBXBuildFile; fileRef = 38CD9E6B152B53F80059FEB3 /* NEO4OC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38F4185815BB26830064BF1F /* NEOGraphDatabase_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 38F4185715BB26830064BF1F /* NEOGraphDatabase_Internal.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +67,7 @@
 		383A50901580B3F700AA10D5 /* NEORequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEORequestBuilder.h; sourceTree = "<group>"; };
 		383A50911580B3F700AA10D5 /* NEORequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEORequestBuilder.m; sourceTree = "<group>"; };
 		383A50A71580B49600AA10D5 /* COPYRIGHT */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYRIGHT; sourceTree = SOURCE_ROOT; };
-		383A50A91580B56F00AA10D5 /* Readme.md */ = {isa = PBXFileReference; path = Readme.md; sourceTree = SOURCE_ROOT; };
+		383A50A91580B56F00AA10D5 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme.md; sourceTree = SOURCE_ROOT; };
 		388FA8A2157389AC00B84976 /* NEODataAccessorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEODataAccessorTests.h; sourceTree = "<group>"; };
 		388FA8A3157389AC00B84976 /* NEODataAccessorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEODataAccessorTests.m; sourceTree = "<group>"; };
 		38CD9E63152B53F80059FEB3 /* libNEO4OC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNEO4OC.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +81,7 @@
 		38CD9E80152B53F80059FEB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		38CD9E82152B53F80059FEB3 /* NEO4OCTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NEO4OCTests.h; sourceTree = "<group>"; };
 		38CD9E83152B53F80059FEB3 /* NEO4OCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NEO4OCTests.m; sourceTree = "<group>"; };
+		38F4185715BB26830064BF1F /* NEOGraphDatabase_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEOGraphDatabase_Internal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				383A50831580B3F700AA10D5 /* NEOError.m */,
 				383A50841580B3F700AA10D5 /* NEOGraphDatabase.h */,
 				383A50851580B3F700AA10D5 /* NEOGraphDatabase.m */,
+				38F4185715BB26830064BF1F /* NEOGraphDatabase_Internal.h */,
 				383A50861580B3F700AA10D5 /* NEOIndex.h */,
 				383A50871580B3F700AA10D5 /* NEOIndex.m */,
 				383A50881580B3F700AA10D5 /* NEONode.h */,
@@ -217,6 +220,7 @@
 				383A509E1580B3F700AA10D5 /* NEOPromise.h in Headers */,
 				383A50A01580B3F700AA10D5 /* NEORelationship.h in Headers */,
 				383A50A21580B3F700AA10D5 /* NEORequestBuilder.h in Headers */,
+				38F4185815BB26830064BF1F /* NEOGraphDatabase_Internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

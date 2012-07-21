@@ -1,6 +1,6 @@
 
 #import "NEO4OCTests.h"
-#import "NEOGraphDatabase.h"
+#import "NEOGraphDatabase_Internal.h"
 #import "NEONode.h"
 #import "NEOError.h"
 #import "NEOPath.h"

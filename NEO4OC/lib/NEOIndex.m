@@ -1,6 +1,6 @@
 
 #import "NEOIndex.h"
-#import "NEOGraphDatabase.h"
+#import "NEOGraphDatabase_Internal.h"
 
 @implementation NEOIndex {
     NSString *_indexName;

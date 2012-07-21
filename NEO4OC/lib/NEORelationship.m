@@ -1,6 +1,6 @@
 
 #import "NEORelationship.h"
-#import "NEOGraphDatabase.h"
+#import "NEOGraphDatabase_Internal.h"
 #import "NEOError.h"
 
 @implementation NEORelationship {

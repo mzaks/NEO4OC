@@ -1,6 +1,6 @@
 
 #import "NEONode.h"
-#import "NEOGraphDatabase.h"
+#import "NEOGraphDatabase_Internal.h"
 #import "NEOError.h"
 
 
