@@ -34,8 +34,11 @@ NSString *idOfURI(NSString *uri);
 - (NEONodePromise *)createNodeWithData:(NSDictionary*)theDataOrNil;
 - (void)queryCypher:(NSString *)cypher withParameters:(NSDictionary *)paramsOrNil andTypedResultHandler:(void (^)(NSArray *result, NEOError *error))callback;
 
+- (NEORelationshipPromise *)getRelationshipById:(NSString *)relationshipId;
+
 - (NEONodeIndexPromise*)createNodeIndexWithName:(NSString*)name andConfig:(NSDictionary*)configOrNil;
 - (NEORelationshipIndexPromise *)createRelationshipIndexWithName:(NSString *)name andConfig:(NSDictionary *)configOrNil;
+
 - (NEONodeIndexPromise*)getNodeIndexWithName:(NSString*)name;
 - (NEORelationshipIndexPromise*)getRelationshipIndexWithName:(NSString*)name;
 - (void)getAllNodeIndexesWithHandler:(void (^)(NSArray *indexes, NEOError* error))callback;

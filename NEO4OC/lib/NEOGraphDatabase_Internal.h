@@ -16,7 +16,6 @@
 - (void)setData:(NSDictionary*)newDataOrEmpty forNodeId:(NSString*)nodeId withResultHandler:(void (^)(NEOError *error))callback;
 
 // Relationships
-- (NEORelationshipPromise *)getRelationshipById:(NSString *)relationshipId;
 - (NEORelationshipPromise *)createRelationshipOfType:(NSString *)type fromNode:(id<NEONode>)node1 toNode:(id<NEONode>)node2 withData:(NSDictionary *)theDataOrNil;
 - (void)deleteRelationshipById:(NSString *)relationshipId withResultHandler:(void (^)(NEOError *error))callback;
 - (void)fetchDataForRelationshipId:(NSString*)relId withResultHandler:(void(^)(NSDictionary* data, NEOError* error))callback;
