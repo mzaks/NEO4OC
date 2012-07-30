@@ -47,4 +47,6 @@
 -(NSURLRequest *)requestForRemoveById:(NSString *)nodeId indexType:(IndexType)type name:(NSString *)indexName key:(NSString *)keyOrNil andValue:(NSString *)valueOrNil;
 -(NSURLRequest *)requestForFindByExactMatchForIndexType:(IndexType)type name:(NSString *)indexName key:(NSString *)key andValue:(NSString *)value;
 
+-(NSURLRequest *)requestForExecuteBatchOperations:(NSArray*)operations;
+
 @end

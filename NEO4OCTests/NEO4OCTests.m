@@ -4,6 +4,7 @@
 #import "NEONode.h"
 #import "NEOError.h"
 #import "NEOPath.h"
+#import "NEOBatchOperationBuilder.h"
 
 #define START_WAIT __block int wait = 1
 #define END_WAIT while(wait>0){}
@@ -635,6 +636,24 @@
         waiting--;
     }];
     while (waiting) {}
+}
+
+- (void)testCreateNodesAndRelationshipsByBatch {
+    NEOBatchOperationBuilder * builder = [graph createBatchBuilder];
+    NSString * n1 =[builder createNodeWithData:nil];
+    NSDictionary *data = [NSDictionary dictionaryWithObject:@"n1_1" forKey:@"name"];
+    NSString * n2 =[builder createNodeWithData:data];
+    NSString * n3 =[builder createNodeWithData:nil];
+    [builder createRelationshipOfType:@"bashRelSelf" fromNodeId:n1 toNode:n1 withData:nil];
+    [builder createRelationshipOfType:@"bashRelB" fromNodeId:n1 toNode:n2 withData:nil];
+    [builder createRelationshipOfType:@"bashRelA" fromNodeId:n1 toNode:n3 withData:nil];
+    [builder createRelationshipOfType:@"bashRelC" fromNodeId:n3 toNode:n2 withData:data];
+    START_WAIT;
+    [builder executeWithResultHandler:^(NEOError *error) {
+        STAssertNil(error, @"should produce no error, %@", error);
+        wait--;
+    }];
+    END_WAIT;
 }
 
 @end

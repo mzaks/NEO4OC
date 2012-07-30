@@ -13,7 +13,8 @@
 #import <Foundation/Foundation.h>
 #import "NEONode.h"
 #import "NEORelationship.h"
-#import "NEOIndex.h"   
+#import "NEOIndex.h"
+#import "NEOBatchOperationBuilder.h"
 
 
 NSString *idOfURI(NSString *uri);
@@ -44,5 +45,6 @@ NSString *idOfURI(NSString *uri);
 - (void)getAllNodeIndexesWithHandler:(void (^)(NSArray *indexes, NEOError* error))callback;
 - (void)getAllRelationshipIndexesWithHandler:(void (^)(NSArray *indexes, NEOError* error))callback;
 
+- (NEOBatchOperationBuilder*)createBatchBuilder;
 
 @end

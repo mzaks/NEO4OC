@@ -631,4 +631,21 @@ BOOL foundUnexpectedHTTPError(NSURLResponse *httpResponse, NSError *httpError, i
     [self findByExactMatchForIndex:indexName key:key value:value callback:callback type:relationshipIndex];
 }
 
+- (NEOBatchOperationBuilder*)createBatchBuilder{
+    return [[NEOBatchOperationBuilder alloc] initWithGraph:self];
+}
+
+-(void)executeBatchOperations:(NSArray*)operations withResultHandler:(void (^)(NEOError *error))callback{
+    NSURLRequest *request = [self.requestBuilder requestForExecuteBatchOperations:operations];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *res, NSData *data, NSError *error) {
+        NEOError *dbError = [[NEOError alloc] init];
+        if (foundUnexpectedHTTPError(res, error, 200, data, dbError)) {
+            callback(dbError);
+            return;
+        }
+        
+        callback(nil);
+    }];
+}
+
 @end

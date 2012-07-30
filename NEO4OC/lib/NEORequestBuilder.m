@@ -47,7 +47,7 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
 }
 
-- (void)putData:(NSDictionary *)theData intoRequest:(NSMutableURLRequest *)request {
+- (void)putData:(id)theData intoRequest:(NSMutableURLRequest *)request {
     if (theData) {
         NSError *jsonSerializeError;
         NSData *data = [NSJSONSerialization dataWithJSONObject:theData options:NSJSONWritingPrettyPrinted error:&jsonSerializeError];
@@ -248,6 +248,13 @@ NSString* typeString(IndexType type){
 -(NSURLRequest *)requestForGetAllIndexesOfType:(IndexType)type{
     NSMutableURLRequest *request = [self createRequestWithURLParts:[NSArray arrayWithObjects:@"db/data/index", typeString(type), nil]];
     [self addGETParameters:request];
+    return [request copy];
+}
+
+-(NSURLRequest *)requestForExecuteBatchOperations:(NSArray*)operations{
+    NSMutableURLRequest *request = [self createRequestWithURLParts:[NSArray arrayWithObjects:@"db/data/batch", nil]];
+    [self addPOSTParameters:request];
+    [self putData:operations intoRequest:request];
     return [request copy];
 }
 

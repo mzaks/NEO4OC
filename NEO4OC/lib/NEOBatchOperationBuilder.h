@@ -11,15 +11,15 @@
  */
 
 #import <Foundation/Foundation.h>
-
-#import "NEOGraphDatabase.h"
-
-#import "NEONode.h"
 #import "NEORelationship.h"
-#import "NEOPath.h"
-#import "NEOIndex.h"
 
-#import "NEOPromise.h"
-#import "NEOError.h"
-#import "NEORequestBuilder.h"
-#import "NEODataAccessor.h"
+@interface NEOBatchOperationBuilder : NSObject
+
+- (id)initWithGraph:(__weak NEOGraphDatabase *)database;
+
+-(NSString *)createNodeWithData:(NSDictionary *)dataOrNil;
+-(NSString *)createRelationshipOfType:(NSString*)type fromNodeId:(NSString *)nodeId toNode:(NSString*)targetNodeId withData:(NSDictionary *)dataOrNil;
+
+-(void)executeWithResultHandler:(void (^)(NEOError *error))callback;
+
+@end
