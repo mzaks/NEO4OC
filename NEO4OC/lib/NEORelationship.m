@@ -40,8 +40,9 @@
 - (void)fetchData:(void(^)(NSDictionary* data, NEOError* error))callback{
     __weak NEORelationship * this = self;
     [graph fetchDataForRelationshipId:self.relationshipId withResultHandler:^(NSDictionary *fetchedData, NEOError *error) {
+        NEORelationship * rel = this;
         if(data){
-            this->data = [fetchedData copy];
+            rel->data = [fetchedData copy];
         }
         callback(fetchedData, error);
     }];
@@ -50,8 +51,9 @@
 - (void)setData:(NSDictionary*)newData withResultHandler:(void (^)(NEOError *))callback{
     __weak NEORelationship * this = self;
     [graph setData:newData forRelationshipId:self.relationshipId withResultHandler:^(NEOError *error) {
+        NEORelationship * rel = this;
         if(!error){
-            this->data = newData;
+            rel->data = newData;
         }
         callback(error);
     }];

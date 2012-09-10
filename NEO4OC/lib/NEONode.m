@@ -35,8 +35,9 @@
 - (void)fetchData:(void(^)(NSDictionary* data, NEOError* error))callback{
     __weak NEONode * this = self;
     [graph fetchDataForNodeId:self.nodeId withResultHandler:^(NSDictionary *fetchedData, NEOError *error) {
-        if(data){
-            this->data = [fetchedData copy];
+        NEONode * _this = this;
+        if(_this->data){
+            _this->data = [fetchedData copy];
         }
         callback(fetchedData, error);
     }];
@@ -45,8 +46,9 @@
 - (void)setData:(NSDictionary*)newData withResultHandler:(void (^)(NEOError *))callback{
     __weak NEONode * this = self;
     [graph setData:newData forNodeId:self.nodeId withResultHandler:^(NEOError *error) {
+        NEONode * node = this;
         if(!error){
-            this->data = newData;
+            node->data = newData;
         }
         callback(error);
     }];

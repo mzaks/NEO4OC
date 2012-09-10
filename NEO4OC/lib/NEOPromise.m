@@ -66,8 +66,9 @@ static NSOperationQueue * queue;
         queue = [[NSOperationQueue alloc] init];
     }
     [queue addOperationWithBlock:^(){
-        [promise wait];
-        callback(promise->value, promise->error);
+        NEOPromise *_promise = promise;
+        [_promise wait];
+        callback(_promise->value, _promise->error);
     }];
 }
 

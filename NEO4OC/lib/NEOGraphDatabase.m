@@ -267,7 +267,7 @@ BOOL foundUnexpectedHTTPError(NSURLResponse *httpResponse, NSError *httpError, i
     NEORelationshipPromise *promise = [[NEORelationshipPromise alloc] init];
     __weak NEOGraphDatabase *graph = self;
     [queue addOperationWithBlock:^{
-
+        NEOGraphDatabase *_graph = graph;
         NSString *fromId = node1.nodeId;
         NSString *toURI = node2.nodeURI;
         NEOError *dbError = [[NEOError alloc] init];
@@ -293,7 +293,7 @@ BOOL foundUnexpectedHTTPError(NSURLResponse *httpResponse, NSError *httpError, i
 
         NSURLRequest *request = [self.requestBuilder requestForCreateRelationshipFromNodeId:fromId withData:requestParameter];
 
-        [NSURLConnection sendAsynchronousRequest:request queue:graph->queue completionHandler:^(NSURLResponse *res, NSData *data, NSError *error) {
+        [NSURLConnection sendAsynchronousRequest:request queue:_graph->queue completionHandler:^(NSURLResponse *res, NSData *data, NSError *error) {
 
             if (foundUnexpectedHTTPError(res, error, 201, data, dbError)) {
                 [promise setError:dbError];
